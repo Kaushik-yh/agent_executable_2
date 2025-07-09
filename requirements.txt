@@ -1,0 +1,10 @@
+langchain_core
+# langchain-huggingface
+langchain-ollama
+langgraph
+# langchain-community
+pydantic
+python-dotenv
+ipython
+fastapi
+uvicorn

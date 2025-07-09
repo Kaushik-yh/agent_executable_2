@@ -1,0 +1,29 @@
+Check out software protectors like
+Nuitka -> https://nuitka.net/user-documentation/
+Themida -> https://www.oreans.com/Themida.php 
+
+tasks  performed:
+Obfuscation
+    -> It is mainly done for the purposes of security by making it obscure to avoid tampering, hide implicit values or conceal the logic used.
+    -> Install : pip install pyarmor
+    -> pyarmor gen app.py (and similarly -> pyarmor gen nodes.py)
+
+Cythonization
+details can be found in (https://cython.readthedocs.io/en/latest/src/quickstart/build.html)
+    Preparing Python code for Cythonization
+        -> convert the extension from .py to .pyx (namual renaming the extension)
+        -> While a .pyx file can contain pure Python code, the primary purpose of converting to .pyx is to leverage Cython's capabilities for performance optimization. 
+    Compiling the .pyx file
+        -> After creating the .pyx file and optionally adding Cython optimizations, you need to compile it into a C extension module that can be imported and used in Python.
+        -> Creating a setup.py file
+        -> Execute python setup.py build_ext --inplace from your terminal to compile the .pyx file into a .so (Linux/macOS) or .pyd (Windows) shared library.
+    Post compilation
+        -> we get obs_nodes.c and obs_app.c file, which is a C compiled file.
+
+create executable using Nuitka
+    -> pip install nuitka
+    -> nuitka --onefile obs_app.py
+    -> Do not convert to .c first unless you have specific reasons
+    -> Nuitka handles all this internally and produces faster and better-optimized binaries than the Cython+gcc path.
+
+    
